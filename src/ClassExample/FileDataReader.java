@@ -8,7 +8,7 @@ import java.util.List;
 
 public class FileDataReader {
 
-    private final Path filePath;
+    public final Path filePath;
 
     public FileDataReader(String filePath) {
         this.filePath = Paths.get(filePath);
