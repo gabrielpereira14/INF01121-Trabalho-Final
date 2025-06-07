@@ -145,10 +145,10 @@ public class ClasseFilha extends ClassePai implements ExemploInterface{
 
 Em Java, o controle do encapsulamento de métodos, classes e atributos é feito usando modificadores de acesso.
 
-`public`: Acessível de qualquer lugar.
-`protected`: Acessível dentro da própria classe, classes do mesmo pacote e subclasses.
-`private`: Acessível apenas dentro da própria classe.
-`default (nenhum modificador)`: Acessível apenas dentro do mesmo pacote.
+`public`: Acessível de qualquer lugar.  
+`protected`: Acessível dentro da própria classe, classes do mesmo pacote e subclasses.  
+`private`: Acessível apenas dentro da própria classe.  
+`default (nenhum modificador)`: Acessível apenas dentro do mesmo pacote.  
 
 
 
