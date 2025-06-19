@@ -1,27 +1,34 @@
 # INF01121-Trabalho-Final
 
 <!-- TOC -->
-- [INF01121-Trabalho-Final](#inf01121-trabalho-final)
-  - [3 DETALHAMENTO DA LINGUAGEM](#3-detalhamento-da-linguagem)
-    - [3.1 Paradigma de Orientação a Objetos em Java](#31-paradigma-de-orientação-a-objetos-em-java)
-      - [3.1.1 Definição de classes](#311-definição-de-classes)
-      - [3.1.2 Herança](#312-herança)
-      - [3.1.3 Encapsulamento](#313-encapsulamento)
-    - [3.2 Paradigma Funcional em Java](#32-paradigma-funcional-em-java)
-      - [3.2.1 As interfaces funcionais em Java](#321-as-interfaces-funcionais-em-java)
-      - [3.2.2 Funções de Alta Ordem](#322-funções-de-alta-ordem)
-      - [3.2.3 Records](#323-records)
-      - [3.2.4 Pattern Matching](#324-pattern-matching)
-      - [3.2.5 Comparação e Performance de Métodos Funcionais em Java contra Métodos Clássicos](#325-comparação-e-performance-de-métodos-funcionais-em-java-contra-métodos-clássicos)
-  - [X Referencias](#x-referencias)
+* [INF01121-Trabalho-Final](#inf01121-trabalho-final)
+  * [3 DETALHAMENTO DA LINGUAGEM](#3-detalhamento-da-linguagem)
+    * [3.1 Paradigma de Orientação a Objetos em Java](#31-paradigma-de-orientação-a-objetos-em-java)
+      * [3.1.1 Definição de classes](#311-definição-de-classes)
+      * [3.1.2 Herança](#312-herança)
+      * [3.1.3 Encapsulamento](#313-encapsulamento)
+      * [3.1.4 Composição](#314-composição)
+      * [3.1.5 Organização de Código em Java](#315-organização-de-código-em-java)
+      * [3.1.6 Polimorfismo Ad-Hoc e Universal](#316-polimorfismo-ad-hoc-e-universal)
+    * [3.2 Paradigma Funcional em Java](#32-paradigma-funcional-em-java)
+      * [3.2.1 As interfaces funcionais em Java](#321-as-interfaces-funcionais-em-java)
+      * [3.2.2 Funções de Alta Ordem](#322-funções-de-alta-ordem)
+      * [3.2.3 Records](#323-records)
+      * [3.2.4 Pattern Matching](#324-pattern-matching)
+      * [3.2.5 Comparação e Performance de Métodos Funcionais em Java contra Métodos Clássicos](#325-comparação-e-performance-de-métodos-funcionais-em-java-contra-métodos-clássicos)
+  * [X Referencias](#x-referencias)
 <!-- TOC -->
 
 ## 3 DETALHAMENTO DA LINGUAGEM
 ### 3.1 Paradigma de Orientação a Objetos em Java
 
-A linguagem Java é um dos exemplos clássicos de linguagens orientadas a objetos, sendo o principal paradigma da linguagem. Portanto, a linguagem é baseada nos 4 pilares da orientação a objetos, são eles, abstração, encapsulamento, herança e polimorfismo.
+A linguagem Java é um dos exemplos clássicos de linguagens orientadas a objetos, sendo o principal paradigma da linguagem. 
+Portanto, a linguagem é baseada nos 4 pilares da orientação a objetos, são eles, abstração, encapsulamento, herança e polimorfismo.
 
-Abstração é o processo de esconder os detalhes da implementação, expondo somente a funcionalidade para o usuário. Encapsulamento é o processo de agrupar código e dados em uma única unidade (classe). Herança é o processo de onde uma classe herda os atributos e métodos de outra classe. Polimorfismo é a habilidade de um método executar coisas diferentes dependendo do contexto em que for chamado.
+Abstração é o processo de esconder os detalhes da implementação, expondo somente a funcionalidade para o usuário. 
+Encapsulamento é o processo de agrupar código e dados em uma única unidade (classe). 
+Herança é o processo de onde uma classe herda os atributos e métodos de outra classe. 
+Polimorfismo é a habilidade de um método executar coisas diferentes dependendo do contexto em que for chamado.
  
 #### 3.1.1 Definição de classes
 
@@ -156,6 +163,241 @@ Em Java, o controle do encapsulamento de métodos, classes e atributos é feito 
 `protected`: Acessível dentro da própria classe, classes do mesmo pacote e subclasses.  
 `private`: Acessível apenas dentro da própria classe.  
 `default (nenhum modificador)`: Acessível apenas dentro do mesmo pacote.  
+
+#### 3.1.4 Composição
+É um princípio de design de software que envolve construir objetos complexos a partir de objetos mais simples.
+Em vez de uma classe herdar o comportamento de outra (herança), ela "tem um" objeto de outra classe e delega a ele
+parte de suas responsabilidades. É uma relação "tem um" (has-a) em oposição à relação "é um" (is-a) da herança.
+
+Em Java, o controle do encapsulamento de métodos, classes e atributos é feito usando modificadores de acesso.
+
+Exemplo:
+Imagine que você está criando um jogo. Um objeto Jogador pode não precisar herdar de uma classe Arma, mas pode ter uma Arma.
+
+Observe as seguintes classes: 
+
+```java
+class Arma {
+    private String nome;
+    private int dano;
+
+    public Arma(String nome, int dano) {
+        this.nome = nome;
+        this.dano = dano;
+    }
+
+    public void usar() {
+        System.out.println("Usando " + nome + " para causar " + dano + " de dano.");
+    }
+}
+
+class Jogador {
+    private String nome;
+    private Arma armaEquipada; // Jogador "tem uma" Arma
+
+    public Jogador(String nome, Arma arma) {
+        this.nome = nome;
+        this.armaEquipada = arma;
+    }
+
+    public void atacar() {
+        System.out.print(nome + " ataca! ");
+        if (armaEquipada != null) {
+            armaEquipada.usar();
+        } else {
+            System.out.println("Mas não tem uma arma equipada.");
+        }
+    }
+}
+```
+
+Com essas classes é possível "dar" ao jogador armas, assim o jogador é composto por seus atributos, métodos e uma arma.  
+Exemplo de uso:
+```java
+class ExemploComposicao {
+  public static void main(String[] args) {
+    Arma espada = new Arma("Espada Longa", 20);
+    Jogador heroi = new Jogador("Arthur", espada);
+    heroi.atacar();
+
+    Jogador mago = new Jogador("Merlin", null);
+    mago.atacar();
+  }
+}
+```
+
+#### 3.1.5 Organização de Código em Java
+
+Em java, os principais mecanismos para organizar o código são pacotes e módulos.
+
+Pacotes em Java são uma forma de agrupar classes e interfaces relacionadas. Eles servem para:
+
+* Organização: Estruturam o código de forma lógica, tornando-o mais fácil de encontrar e gerenciar.
+* Controle de Acesso: Definem a visibilidade de classes e membros. Classes no mesmo pacote podem acessar membros com visibilidade default (package-private).
+* Prevenção de Conflitos de Nomes: Permitem que você tenha classes com o mesmo nome em pacotes diferentes sem gerar erros. Por exemplo, você pode ter com.meuapp.model.Usuario e com.outrapp.servico.Usuario.
+
+Como usar:
+Pacotes são definidos usando a palavra-chave package no início de cada arquivo de classe Java.
+```java
+package com.meuapp.model;
+```
+
+Módulos foram introduzidos no Java 9 com o Java Platform Module System (JPMS) (também conhecido como Projeto Jigsaw). 
+Eles permitem agrupar pacotes e definir dependências explícitas entre eles.
+
+Como usar:
+Um módulo é definido por um arquivo module-info.java na raiz do diretório do módulo.
+
+Por exemplo:
+```java
+module meu.aplicativo {
+    requires java.sql; // Depende do módulo java.sql
+    exports com.meuapp.api; // Exporta o pacote 'com.meuapp.api'
+}
+```
+
+Benefícios dos Módulos:
+
+* Encapsulamento Forte: Um módulo define quais pacotes ele exporta (torna visíveis para outros módulos) e de quais pacotes ele depende. Isso impede que partes internas de um módulo sejam acessadas acidentalmente.
+* Configurabilidade: Ajuda a criar aplicações mais leves, pois o JRE (Java Runtime Environment) pode incluir apenas os módulos necessários para a aplicação.
+* Melhor Desempenho: O JRE pode otimizar a carga de classes.
+* Confiabilidade: As dependências explícitas facilitam identificar problemas de dependência em tempo de compilação.
+
+
+#### 3.1.6 Polimorfismo Ad-Hoc e Universal
+Permite que um método com o mesmo nome se comportem de maneira diferente dependendo do contexto.
+
+
+##### Polimorfismo Ad-Hoc 
+Também conhecido como sobrecarga de métodos, o polimorfismo ad-hoc ocorre ao ter vários métodos com o mesmo 
+nome em uma única classe, mas com diferentes assinaturas (número, tipo ou ordem dos parâmetros). 
+O compilador decide qual método chamar com base nos argumentos fornecidos em tempo de compilação.
+
+```java
+class Calculadora {
+  // Soma dois inteiros
+  public int somar(int a, int b) {
+    return a + b;
+  }
+
+  // Soma três inteiros
+  public int somar(int a, int b, int c) {
+    return a + b + c;
+  }
+
+  // Soma dois doubles
+  public double somar(double a, double b) {
+    return a + b;
+  }
+}
+```
+
+Considerando essa classe o seguinte trecho de código se torna possível:
+```java
+Calculadora calc = new Calculadora();
+System.out.println(calc.somar(5, 10));       // Chama somar(int, int)
+System.out.println(calc.somar(5, 10, 15));   // Chama somar(int, int, int)
+System.out.println(calc.somar(2.5, 3.5));    // Chama somar(double, double)
+```
+##### Polimorfismo Universal
+O polimorfismo universal permite que um objeto de uma subclasse seja tratado como um objeto da sua superclasse, 
+mas o método invocado é aquele da subclasse. Isso pode ser alcançado através de interfaces ou pela sobrescrita (overriding).
+
+Com a sobrescrita uma subclasse fornece uma implementação específica para um método que já é 
+definido na sua superclasse. A decisão de qual método chamar é feita em tempo de execução (polimorfismo dinâmico).
+
+Exemplo de definição:
+```java
+class Animal {
+  public void fazerSom() {
+    System.out.println("O animal faz um som.");
+  }
+}
+
+class Cachorro extends Animal {
+  @Override // Anotação opcional, mas boa prática
+  public void fazerSom() {
+    System.out.println("O cachorro late: Au au!");
+  }
+}
+
+class Gato extends Animal {
+  @Override
+  public void fazerSom() {
+    System.out.println("O gato mia: Miau!");
+  }
+}
+```
+Exemplo de uso:
+```java
+Animal meuAnimal = new Animal();
+Animal meuCachorro = new Cachorro(); 
+Animal meuGato = new Gato();        
+
+meuAnimal.fazerSom();  // Saída: O animal faz um som.
+meuCachorro.fazerSom();// Saída: O cachorro late: Au au! (Método do Cachorro é chamado)
+meuGato.fazerSom();    // Saída: O gato mia: Miau! (Método do Gato é chamado)
+```
+
+No caso das interfaces, elas definem um contrato de métodos que as classes devem implementar. Então, uma variável 
+pode ser declarada com o tipo de interface, e consegue referenciar qualquer objeto de uma classe que implemente essa interface. 
+
+Exemplo de definição:
+```java
+interface Forma {
+    double calcularArea();
+    void desenhar();
+}
+
+class Circulo implements Forma {
+    private double raio;
+
+    public Circulo(double raio) {
+        this.raio = raio;
+    }
+
+    @Override
+    public double calcularArea() {
+        return Math.PI * raio * raio;
+    }
+
+    @Override
+    public void desenhar() {
+        System.out.println("Desenhando um círculo.");
+    }
+}
+
+class Retangulo implements Forma {
+    private double largura;
+    private double altura;
+
+    public Retangulo(double largura, double altura) {
+        this.largura = largura;
+        this.altura = altura;
+    }
+
+    @Override
+    public double calcularArea() {
+        return largura * altura;
+    }
+
+    @Override
+    public void desenhar() {
+        System.out.println("Desenhando um retângulo.");
+    }
+}
+```
+Exemplo de uso:
+```java
+Forma forma1 = new Circulo(5.0);
+Forma forma2 = new Retangulo(4.0, 6.0);
+
+System.out.println("Área do círculo: " + forma1.calcularArea());
+forma1.desenhar();
+
+System.out.println("Área do retângulo: " + forma2.calcularArea());
+forma2.desenhar();
+```
 
 ### 3.2 Paradigma Funcional em Java
 
