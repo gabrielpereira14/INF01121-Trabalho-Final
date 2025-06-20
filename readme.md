@@ -627,6 +627,7 @@ No exemplo acima, mesmo utilizando um `record` (que é imutável em sua estrutur
 ```java
 Pessoa pessoaNula = new Pessoa(null, null);
 System.out.println(pessoaNula.nome()); // Saída: null 
+```
 
 Entretanto, ainda é possível programar como se a linguagem fosse funcional e imutável de fato, tornando Java uma linguagem ainda mais competitiva e robusta no cenário de desenvolvimento de software.
 
