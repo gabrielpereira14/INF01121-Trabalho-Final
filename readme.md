@@ -26,16 +26,16 @@
     - [4.4 Mecanismos de definição e gerência de escopo](#44-mecanismos-de-definição-e-gerência-de-escopo)
     - [4.5 Expressividade](#45-expressividade)
     - [4.6 Mecanismos de Especificação e Verificação de Tipos](#46-mecanismos-de-especificação-e-verificação-de-tipos)
-  - [4.7 Suporte ao tratamento de exceções](#47-suporte-ao-tratamento-de-exceções)
-  - [4.8 Reusabilidade](#48-reusabilidade)
-  - [4.9 Suporte a documentação](#49-suporte-a-documentação)
-  - [4.10 Generalidade](#410-generalidade)
-  - [4.11 Portabilidade, longevidade](#411-portabilidade-longevidade)
-  - [4.12 Escalabilidade e desempenho](#412-escalabilidade-e-desempenho)
-  - [4.13 Custo](#413-custo)
-  - [4.14 Confiabilidade](#414-confiabilidade)
-  - [4.15 Legibilidade](#415-legibilidade)
-  - [4.16 Redigibilidade](#416-redigibilidade)
+    - [4.7 Suporte ao tratamento de exceções](#47-suporte-ao-tratamento-de-exceções)
+    - [4.8 Reusabilidade](#48-reusabilidade)
+    - [4.9 Suporte a documentação](#49-suporte-a-documentação)
+    - [4.10 Generalidade](#410-generalidade)
+    - [4.11 Portabilidade, longevidade](#411-portabilidade-longevidade)
+    - [4.12 Escalabilidade e desempenho](#412-escalabilidade-e-desempenho)
+    - [4.13 Custo](#413-custo)
+    - [4.14 Confiabilidade](#414-confiabilidade)
+    - [4.15 Legibilidade](#415-legibilidade)
+    - [4.16 Redigibilidade](#416-redigibilidade)
   - [5 CONCLUSÃO](#5-conclusão)
   - [6 BIBLIOGRAFIA](#6-bibliografia)
 <!-- TOC -->
@@ -660,45 +660,45 @@ Sendo uma linguagem estaticamente tipada, Java possui um sistema de tipos forte 
 
 Porém, o fato de todos os objetos poderem ser tratados como Object, e a possibilidade de usar o operador `instanceof` para verificar o tipo de um objeto em tempo de execução, pode levar a erros sutis se não for usado corretamente. Além disso, a linguagem não possui suporte nativo a tipos union ou intersection, o que pode limitar a expressividade em alguns casos.
 
-## 4.7 Suporte ao tratamento de exceções
+### 4.7 Suporte ao tratamento de exceções
 
 Java possui um sistema robusto de tratamento de exceções, que permite aos desenvolvedores capturar e tratar erros de forma controlada. A linguagem distingue entre exceções verificadas (checked exceptions) e não verificadas (unchecked exceptions). Exceções verificadas devem ser declaradas no método ou capturadas dentro de um bloco try-catch, enquanto exceções não verificadas (como NullPointerException) não precisam ser declaradas. Java usa uma tabela estática de exceções, onde cada exceção é mapeada para um tipo específico. Isso permite que os desenvolvedores tratem exceções de forma específica e personalizada, melhorando a robustez do código. Além disso, a linguagem suporta o uso de blocos try-with-resources, que garantem o fechamento automático de recursos como arquivos e conexões de banco de dados, evitando vazamentos de recursos.
 
-## 4.8 Reusabilidade
+### 4.8 Reusabilidade
 
 Java é uma linguagem altamente reutilizável, principalmente devido ao seu forte suporte a orientação a objetos e modularidade. A linguagem permite a criação de classes e interfaces que podem ser reutilizadas em diferentes partes do código ou em diferentes projetos. Além disso, o uso de pacotes e módulos facilita a organização e reutilização de código, sendo uma das linguagens mais populares para desenvolvimento de bibliotecas e frameworks reutilizáveis. A combinação do uso de interfaces e controle da visibilidade dos membros da classe permite que os desenvolvedores criem APIs limpas e bem definidas, promovendo a reutilização de código e seguindo o principio SOLID de Interface Segregation, garantindo um reuso limpo.
 
-## 4.9 Suporte a documentação
+### 4.9 Suporte a documentação
 
 O sistema de documentaçao em Java já é integrado diretamente a linguagem, o Javadoc, permite que os desenvolvedores escrevam documentação diretamente no código-fonte usando comentários especiais. Essa documentação pode ser gerada automaticamente em formato HTML, facilitando a leitura e compreensão do código por outros desenvolvedores. Além disso, o Javadoc suporta tags especiais para documentar parâmetros, retornos, exceções e outros aspectos dos métodos e classes, permitindo que IDEs e geradores de documentação tornem o acesso a essas informações um processo rápido e sem um grande overhead para o desenvolvedor que a escreve ou consome.
 
-## 4.10 Generalidade
+### 4.10 Generalidade
 
 Java pode (e é) usada para uma ampla variedade de aplicações, desde aplicativos desktop, web, movéis, sistemas embarcados, back-ends em micro-serviços e até mesmo jogos. Devido a JVM, a linguagem é portável e pode ser executada em qualquer plataforma que suporte a máquina virtual Java, o que a torna uma escolha popular para desenvolvimento multiplataforma.
 
-## 4.11 Portabilidade, longevidade
+### 4.11 Portabilidade, longevidade
 
 Novamente, devido a JVM, Java é altamente portátil e pode ser executada em qualquer sistema operacional que suporte a máquina virtual Java. A linguagem foi projetada para ser independente de plataforma desde o início, o que a torna uma escolha popular para desenvolvimento de aplicações empresariais e sistemas distribuídos. Além disso, a linguagem tem uma longa história e uma grande base de usuários, o que garante sua longevidade no mercado. A evolução constante da linguagem, com novas versões sendo lançadas regularmente, também contribui para sua relevância e continuidade no futuro, conseguindo sair de aplicações baseadas em servidores on-premise e sendo uma linguagem predominante em aplicações distribuídas também.
 
-## 4.12 Escalabilidade e desempenho
+### 4.12 Escalabilidade e desempenho
 
 Java é uma linguagem escalavel, principalmente devido ao seu forte suporte a orientação a objetos, modularidade e paralelização. A linguagem permite que os desenvolvedores criem aplicações que podem ser facilmente escaladas para lidar com grandes volumes de dados e usuários. Além disso, o uso de threads e a capacidade de executar código em paralelo (com streams) permitem que as aplicações Java aproveitem ao máximo os recursos do hardware moderno, como processadores multi-core, mesmo com um pequeno esforço por parte do desenvolvedor.
 
 A JVM também possui um sistema de gerenciamento de memória eficiente, com coleta de lixo (garbage collection) automática, o que ajuda a evitar vazamentos de memória e melhora o desempenho geral das aplicações. No entanto, é importante notar que o desempenho pode variar dependendo da implementação da JVM e das configurações de execução, não sendo uma linguagem de alto desempenho em comparação com linguagens como C ou C++.
 
-## 4.13 Custo
+### 4.13 Custo
 
 Java é uma linguagem de código aberto e gratuita, o que a torna acessível para desenvolvedores e empresas. A Oracle, que mantém o desenvolvimento da linguagem, oferece uma versão comercial da JVM com suporte pago, mas a maioria dos desenvolvedores utiliza versões gratuitas e de código aberto, como OpenJDK. Porém, o consumo de recursos da JVM e a necessidade de hardware mais potente para executar aplicações Java em grande escala podem aumentar os custos operacionais, especialmente em ambientes de produção. Além disso, o custo de desenvolvimento pode ser maior devido à complexidade da linguagem e à necessidade de uma equipe de desenvolvedores experientes para criar e manter aplicações Java de alta qualidade, o que é atenuado pelo grande ecossistema de bibliotecas e frameworks disponíveis, que podem reduzir o tempo de desenvolvimento e os custos associados.
 
-## 4.14 Confiabilidade
+### 4.14 Confiabilidade
 
 Devido a presença de null na linguagem, Java não pode ser considerada totalmente confiável em runtime, com o famoso NullPointerExcepetion sendo comum em Java. Porém, a linguagem possui um sistema de tipos forte e bem definido, o que ajuda a evitar muitos erros comuns relacionados a tipos. Além disso, o sistema de tratamento de exceções permite que os desenvolvedores capturem e tratem erros de forma controlada, melhorando a robustez do código. A introdução de recursos como Optional e pattern matching também contribui para aumentar a confiabilidade do código, permitindo que os desenvolvedores escrevam código mais seguro e expressivo, porém está carga ainda é deixada para o desenvolvedor, ao contrário de linguagens como Rust, que possuem um sistema de tipos que garante a ausência de null em tempo de compilação.
 
-## 4.15 Legibilidade
+### 4.15 Legibilidade
 
 Java é tão legível quanto os programadores a permitem ser. Apeas do custo inicial de absorver a sintaxe da linguagem, o código Java costuma ser padronizado e de fácil assimilação devido a sua sintaxe forte e estrita. Porém, más práticas de programação, como o uso excessivo de comentários, nomes de variáveis pouco descritivos e código complexo, podem tornar o código Java difícil de ler e entender, bem como o uso exagerado de Generics. A introdução de recursos como expressões lambda, streams e records aumentou significativamente a legibilidade da linguagem, permitindo que os desenvolvedores escrevam código mais declarativo e mais parecido com prosa. Além disso, o uso de Javadoc e outras ferramentas de documentação ajuda a manter o código bem documentado e fácil de entender por outros desenvolvedores.
 
-## 4.16 Redigibilidade
+### 4.16 Redigibilidade
 
 A redigibilidade em Java é boa, apesar de verbosa. Porém, com o uso de IDEs modernas e ferramentas como o Lombok (que permite a criação automática de código boilerplate) e o uso de records, essa verbosidade pode ser significativamente reduzida. A linguagem também possui uma forte convenção de nomenclatura e estilo de código, o que ajuda a manter o código consistente e fácil de ler. Além disso, o uso de ferramentas de formatação automática e linters ajuda a garantir que o código siga as convenções de estilo e seja fácil de entender por outros desenvolvedores, permitindo que formatação sejá parte do processo de compilação e não uma tarefa manual, por exemplo usando o plugin checkstyle em Maven.
 
