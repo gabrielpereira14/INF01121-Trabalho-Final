@@ -1,22 +1,43 @@
 # INF01121-Trabalho-Final
 
 <!-- TOC -->
-* [INF01121-Trabalho-Final](#inf01121-trabalho-final)
-  * [3 DETALHAMENTO DA LINGUAGEM](#3-detalhamento-da-linguagem)
-    * [3.1 Paradigma de Orientação a Objetos em Java](#31-paradigma-de-orientação-a-objetos-em-java)
-      * [3.1.1 Definição de classes](#311-definição-de-classes)
-      * [3.1.2 Herança](#312-herança)
-      * [3.1.3 Encapsulamento](#313-encapsulamento)
-      * [3.1.4 Composição](#314-composição)
-      * [3.1.5 Organização de Código em Java](#315-organização-de-código-em-java)
-      * [3.1.6 Polimorfismo Ad-Hoc e Universal](#316-polimorfismo-ad-hoc-e-universal)
-    * [3.2 Paradigma Funcional em Java](#32-paradigma-funcional-em-java)
-      * [3.2.1 As interfaces funcionais em Java](#321-as-interfaces-funcionais-em-java)
-      * [3.2.2 Funções de Alta Ordem](#322-funções-de-alta-ordem)
-      * [3.2.3 Records](#323-records)
-      * [3.2.4 Pattern Matching](#324-pattern-matching)
-      * [3.2.5 Comparação e Performance de Métodos Funcionais em Java contra Métodos Clássicos](#325-comparação-e-performance-de-métodos-funcionais-em-java-contra-métodos-clássicos)
-  * [X Referencias](#x-referencias)
+- [INF01121-Trabalho-Final](#inf01121-trabalho-final)
+  - [3 DETALHAMENTO DA LINGUAGEM](#3-detalhamento-da-linguagem)
+    - [3.1 Paradigma de Orientação a Objetos em Java](#31-paradigma-de-orientação-a-objetos-em-java)
+      - [3.1.1 Definição de classes](#311-definição-de-classes)
+      - [3.1.2 Herança](#312-herança)
+      - [3.1.3 Encapsulamento](#313-encapsulamento)
+      - [3.1.4 Composição](#314-composição)
+      - [3.1.5 Organização de Código em Java](#315-organização-de-código-em-java)
+      - [3.1.6 Polimorfismo Ad-Hoc e Universal](#316-polimorfismo-ad-hoc-e-universal)
+        - [Polimorfismo Ad-Hoc](#polimorfismo-ad-hoc)
+        - [Polimorfismo Universal](#polimorfismo-universal)
+    - [3.2 Paradigma Funcional em Java](#32-paradigma-funcional-em-java)
+      - [3.2.1 As interfaces funcionais em Java](#321-as-interfaces-funcionais-em-java)
+      - [3.2.2 Funções de Alta Ordem](#322-funções-de-alta-ordem)
+      - [3.2.3 Records](#323-records)
+      - [3.2.4 Pattern Matching](#324-pattern-matching)
+      - [3.2.5 Comparação e Performance de Métodos Funcionais em Java contra Métodos Clássicos](#325-comparação-e-performance-de-métodos-funcionais-em-java-contra-métodos-clássicos)
+      - [3.2.6 Imutabilidade](#326-imutabilidade)
+  - [4 ANÁLISE CRITÍCA](#4-análise-critíca)
+    - [4.1 Simplicidade](#41-simplicidade)
+    - [4.2 Ortogonalidade](#42-ortogonalidade)
+    - [4.3 Estruturas de Controle](#43-estruturas-de-controle)
+    - [4.4 Mecanismos de definição e gerência de escopo](#44-mecanismos-de-definição-e-gerência-de-escopo)
+    - [4.5 Expressividade](#45-expressividade)
+    - [4.6 Mecanismos de Especificação e Verificação de Tipos](#46-mecanismos-de-especificação-e-verificação-de-tipos)
+    - [4.7 Suporte ao tratamento de exceções](#47-suporte-ao-tratamento-de-exceções)
+    - [4.8 Reusabilidade](#48-reusabilidade)
+    - [4.9 Suporte a documentação](#49-suporte-a-documentação)
+    - [4.10 Generalidade](#410-generalidade)
+    - [4.11 Portabilidade, longevidade](#411-portabilidade-longevidade)
+    - [4.12 Escalabilidade e desempenho](#412-escalabilidade-e-desempenho)
+    - [4.13 Custo](#413-custo)
+    - [4.14 Confiabilidade](#414-confiabilidade)
+    - [4.15 Legibilidade](#415-legibilidade)
+    - [4.16 Redigibilidade](#416-redigibilidade)
+  - [5 CONCLUSÃO](#5-conclusão)
+  - [6 BIBLIOGRAFIA](#6-bibliografia)
 <!-- TOC -->
 
 ## 3 DETALHAMENTO DA LINGUAGEM
@@ -263,7 +284,6 @@ Benefícios dos Módulos:
 * Melhor Desempenho: O JRE pode otimizar a carga de classes.
 * Confiabilidade: As dependências explícitas facilitam identificar problemas de dependência em tempo de compilação.
 
-
 #### 3.1.6 Polimorfismo Ad-Hoc e Universal
 Permite que um método com o mesmo nome se comportem de maneira diferente dependendo do contexto.
 
@@ -417,7 +437,7 @@ Java ainda fornece algumas especializações de Function:
 
 - `Supplier<R>`: Uma função do tipo Function<void, R>, representando uma função que gera ou fornece resultados sem necessitar de nenhuma entrada.
 
-Estas definições não só ajudam desenvolvedores a adicionarem mais intenção e controle sobre seus designs, mas também permitem à linguagem fornecer componentes reutilizáveis, segregando o tipo de função que um método aceita utilizando os próprios recursos da orientação a objetos para validar as interfaces.
+Estas definições não só ajudam desenvolvedores a adicionarem mais intenção e controle sobre seus designs, como também permitem à linguagem fornecer componentes reutilizáveis, segregando o tipo de função que um método aceita utilizando os próprios recursos da orientação a objetos para validar as interfaces.
 
 Usuários podem também declarar funções anônimas (lambdas) e armazená-las em variáveis, podendo ser passadas entre métodos e armazenadas em objetos, como veremos na seção 3.2.5.
 
@@ -580,11 +600,120 @@ Em termos de performance, para coleções pequenas e operações sequenciais sim
 
 Portanto, a escolha pela abordagem funcional em Java moderno é, na maioria dos casos, uma decisão que favorece a qualidade, clareza e escalabilidade do código.
 
-## X Referencias
+#### 3.2.6 Imutabilidade 
 
-https://www.oracle.com/br/technical-resources/articles/java/processing-streams-java-se-8.html [Vou ajustar ainda]
-https://docs.oracle.com/en/java/javase/22/language/record-patterns.html
-https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
-https://www.baeldung.com/java-streams-vs-loops
-https://openjdk.org/jeps/395
-https://openjdk.org/jeps/441
+Porém, mesmo com a adição de suporte a construções funcionais, Java por natureza não consegue garantir a imutabilidade completa de seus objetos ou a null-safety da linguagem, sendo possivel criar construçoes que violam esses principios dentro de abordagens funcionais, como segue o exemplo abaixo:
+
+```java
+import java.util.List;
+import java.util.ArrayList;
+
+public record Pessoa(String nome, List<String> telefones) {}
+
+public class ExemploImutabilidade {
+    public static void main(String[] args) {
+        List<String> telefones = new ArrayList<>();
+        telefones.add("99999-0000");
+        Pessoa pessoa = new Pessoa("João", telefones);
+
+        pessoa.telefones().add("88888-1111");
+        System.out.println(pessoa.telefones()); // Saída: [99999-0000, 88888-1111]
+    }
+}
+```
+
+No exemplo acima, mesmo utilizando um `record` (que é imutável em sua estrutura), o campo `telefones` é uma lista mutável. Isso permite que o conteúdo da lista seja alterado após a criação do objeto, violando o princípio da imutabilidade profunda. Além disso, Java não impede o uso de `null` como valor, o que pode causar exceções em tempo de execução:
+
+```java
+Pessoa pessoaNula = new Pessoa(null, null);
+System.out.println(pessoaNula.nome()); // Saída: null 
+
+Entretanto, ainda é possível programar como se a linguagem fosse funcional e imutável de fato, tornando Java uma linguagem ainda mais competitiva e robusta no cenário de desenvolvimento de software.
+
+## 4 ANÁLISE CRITÍCA
+
+Seguindo o modelo visto em aula, neste capitulo iremos análisar algumas caracteristicas da linguagem do ponto de vista do grupo.
+
+### 4.1 Simplicidade
+
+Java não está entre as linguagens mais simples que possuimos, principalmente devido a sua constante evolução e crescimento da linguagem, entretanto, ela ainda é considerada uma linguagem de fácil aprendizado, principalmente para quem já possui alguma experiência com linguagens orientadas a objetos. A sintaxe não foge do padrão de outras linguagens como C e C#, permitindo uma fácil transição entre estas linguagens, mesmo com seu vocabulário extenso e notações próprias, como o `this` (mais comum em Javascript) e o uso de Generics, que podem ser um pouco confusos para iniciantes.
+
+### 4.2 Ortogonalidade
+
+Java é uma linguagem ortogonal, pois suas construções são independentes e podem ser combinadas de várias maneiras sem causar efeitos colaterais inesperados. Por exemplo, o uso de herança, interfaces, classes abstratas e métodos concretos pode ser combinado livremente para criar hierarquias complexas de classes. Além disso, a linguagem permite a criação de métodos genéricos que podem operar em diferentes tipos de dados, aumentando ainda mais a flexibilidade e a reutilização do código. Inclusive, com a introdução de Generics e interfaces funcionais, a linguagem se tornou ainda mais ortogonal, permitindo que os desenvolvedores criem soluções mais flexíveis e reutilizáveis. 
+
+### 4.3 Estruturas de Controle
+
+Java possui todas as estruturas de controle comuns em linguagens de programação, como condicionais (`if`, `else`, `switch`) e loops (`for`, `while`, `do-while`). Essas estruturas são bem definidas e fáceis de entender, permitindo que os desenvolvedores escrevam código claro e legível. Além disso, a linguagem suporta o uso de expressões lambda e streams, que permitem uma abordagem funcional para manipulação de coleções, tornando o código mais conciso e expressivo.
+
+### 4.4 Mecanismos de definição e gerência de escopo
+
+Java possui um sistema de escopo bem definido, onde variáveis e métodos são acessíveis dentro do escopo em que foram declarados. O escopo pode ser definido por blocos de código, classes, pacotes e módulos. A linguagem também suporta modificadores de acesso (`public`, `private`, `protected`, `default`) que controlam a visibilidade dos membros da classe, permitindo uma gerência eficaz do escopo e encapsulamento. Além disso, com a introdução de módulos no Java 9, o controle de escopo foi aprimorado, permitindo que os desenvolvedores definam quais pacotes são acessíveis fora do módulo. Com o uso de frameworks como Spring e Maven, a gerência de escopo se torna ainda mais robusta, permitindo a criação de aplicações modulares e escaláveis.
+
+### 4.5 Expressividade
+
+Java é uma linguagem expressiva, permitindo que os desenvolvedores escrevam código claro e conciso. A introdução de recursos como expressões lambda, streams e records aumentou significativamente a expressividade da linguagem, permitindo que os desenvolvedores escrevam código mais declarativo e menos imperativo. Além disso, a linguagem possui uma rica biblioteca padrão (Java Standard Library) que fornece uma ampla gama de funcionalidades prontas para uso, o que reduz a necessidade de escrever código boilerplate. A sintaxe da linguagem é clara e consistente, o que facilita a leitura e compreensão do código por outros desenvolvedores.
+
+### 4.6 Mecanismos de Especificação e Verificação de Tipos
+
+Sendo uma linguagem estaticamente tipada, Java possui um sistema de tipos forte e bem definido. Os tipos são verificados em tempo de compilação, o que ajuda a evitar erros comuns relacionados a tipos. A linguagem suporta herança, interfaces e generics, permitindo mais controle ao desenvolvedor definir o quão estreito ou amplo será a gama de tipos que aceita. Além disso, com a introdução de records e pattern matching, a verificação de tipos se tornou ainda mais robusta, permitindo que os desenvolvedores escrevam código mais seguro e expressivo. A linguagem também possui suporte a anotações (annotations), que permitem adicionar metadados ao código e podem ser usadas para validação em tempo de compilação ou em tempo de execução. 
+
+Porém, o fato de todos os objetos poderem ser tratados como Object, e a possibilidade de usar o operador `instanceof` para verificar o tipo de um objeto em tempo de execução, pode levar a erros sutis se não for usado corretamente. Além disso, a linguagem não possui suporte nativo a tipos union ou intersection, o que pode limitar a expressividade em alguns casos.
+
+### 4.7 Suporte ao tratamento de exceções
+
+Java possui um sistema robusto de tratamento de exceções, que permite aos desenvolvedores capturar e tratar erros de forma controlada. A linguagem distingue entre exceções verificadas (checked exceptions) e não verificadas (unchecked exceptions). Exceções verificadas devem ser declaradas no método ou capturadas dentro de um bloco try-catch, enquanto exceções não verificadas (como NullPointerException) não precisam ser declaradas. Java usa uma tabela estática de exceções, onde cada exceção é mapeada para um tipo específico. Isso permite que os desenvolvedores tratem exceções de forma específica e personalizada, melhorando a robustez do código. Além disso, a linguagem suporta o uso de blocos try-with-resources, que garantem o fechamento automático de recursos como arquivos e conexões de banco de dados, evitando vazamentos de recursos.
+
+### 4.8 Reusabilidade
+
+Java é uma linguagem altamente reutilizável, principalmente devido ao seu forte suporte a orientação a objetos e modularidade. A linguagem permite a criação de classes e interfaces que podem ser reutilizadas em diferentes partes do código ou em diferentes projetos. Além disso, o uso de pacotes e módulos facilita a organização e reutilização de código, sendo uma das linguagens mais populares para desenvolvimento de bibliotecas e frameworks reutilizáveis. A combinação do uso de interfaces e controle da visibilidade dos membros da classe permite que os desenvolvedores criem APIs limpas e bem definidas, promovendo a reutilização de código e seguindo o principio SOLID de Interface Segregation, garantindo um reuso limpo.
+
+### 4.9 Suporte a documentação
+
+O sistema de documentaçao em Java já é integrado diretamente a linguagem, o Javadoc, permite que os desenvolvedores escrevam documentação diretamente no código-fonte usando comentários especiais. Essa documentação pode ser gerada automaticamente em formato HTML, facilitando a leitura e compreensão do código por outros desenvolvedores. Além disso, o Javadoc suporta tags especiais para documentar parâmetros, retornos, exceções e outros aspectos dos métodos e classes, permitindo que IDEs e geradores de documentação tornem o acesso a essas informações um processo rápido e sem um grande overhead para o desenvolvedor que a escreve ou consome.
+
+### 4.10 Generalidade
+
+Java pode (e é) usada para uma ampla variedade de aplicações, desde aplicativos desktop, web, movéis, sistemas embarcados, back-ends em micro-serviços e até mesmo jogos. Devido a JVM, a linguagem é portável e pode ser executada em qualquer plataforma que suporte a máquina virtual Java, o que a torna uma escolha popular para desenvolvimento multiplataforma.
+
+### 4.11 Portabilidade, longevidade
+
+Novamente, devido a JVM, Java é altamente portátil e pode ser executada em qualquer sistema operacional que suporte a máquina virtual Java. A linguagem foi projetada para ser independente de plataforma desde o início, o que a torna uma escolha popular para desenvolvimento de aplicações empresariais e sistemas distribuídos. Além disso, a linguagem tem uma longa história e uma grande base de usuários, o que garante sua longevidade no mercado. A evolução constante da linguagem, com novas versões sendo lançadas regularmente, também contribui para sua relevância e continuidade no futuro, conseguindo sair de aplicações baseadas em servidores on-premise e sendo uma linguagem predominante em aplicações distribuídas também.
+
+### 4.12 Escalabilidade e desempenho
+
+Java é uma linguagem escalavel, principalmente devido ao seu forte suporte a orientação a objetos, modularidade e paralelização. A linguagem permite que os desenvolvedores criem aplicações que podem ser facilmente escaladas para lidar com grandes volumes de dados e usuários. Além disso, o uso de threads e a capacidade de executar código em paralelo (com streams) permitem que as aplicações Java aproveitem ao máximo os recursos do hardware moderno, como processadores multi-core, mesmo com um pequeno esforço por parte do desenvolvedor.
+
+A JVM também possui um sistema de gerenciamento de memória eficiente, com coleta de lixo (garbage collection) automática, o que ajuda a evitar vazamentos de memória e melhora o desempenho geral das aplicações. No entanto, é importante notar que o desempenho pode variar dependendo da implementação da JVM e das configurações de execução, não sendo uma linguagem de alto desempenho em comparação com linguagens como C ou C++.
+
+### 4.13 Custo
+
+Java é uma linguagem de código aberto e gratuita, o que a torna acessível para desenvolvedores e empresas. A Oracle, que mantém o desenvolvimento da linguagem, oferece uma versão comercial da JVM com suporte pago, mas a maioria dos desenvolvedores utiliza versões gratuitas e de código aberto, como OpenJDK. Porém, o consumo de recursos da JVM e a necessidade de hardware mais potente para executar aplicações Java em grande escala podem aumentar os custos operacionais, especialmente em ambientes de produção. Além disso, o custo de desenvolvimento pode ser maior devido à complexidade da linguagem e à necessidade de uma equipe de desenvolvedores experientes para criar e manter aplicações Java de alta qualidade, o que é atenuado pelo grande ecossistema de bibliotecas e frameworks disponíveis, que podem reduzir o tempo de desenvolvimento e os custos associados.
+
+### 4.14 Confiabilidade
+
+Devido a presença de null na linguagem, Java não pode ser considerada totalmente confiável em runtime, com o famoso NullPointerExcepetion sendo comum em Java. Porém, a linguagem possui um sistema de tipos forte e bem definido, o que ajuda a evitar muitos erros comuns relacionados a tipos. Além disso, o sistema de tratamento de exceções permite que os desenvolvedores capturem e tratem erros de forma controlada, melhorando a robustez do código. A introdução de recursos como Optional e pattern matching também contribui para aumentar a confiabilidade do código, permitindo que os desenvolvedores escrevam código mais seguro e expressivo, porém está carga ainda é deixada para o desenvolvedor, ao contrário de linguagens como Rust, que possuem um sistema de tipos que garante a ausência de null em tempo de compilação.
+
+### 4.15 Legibilidade
+
+Java é tão legível quanto os programadores a permitem ser. Apeas do custo inicial de absorver a sintaxe da linguagem, o código Java costuma ser padronizado e de fácil assimilação devido a sua sintaxe forte e estrita. Porém, más práticas de programação, como o uso excessivo de comentários, nomes de variáveis pouco descritivos e código complexo, podem tornar o código Java difícil de ler e entender, bem como o uso exagerado de Generics. A introdução de recursos como expressões lambda, streams e records aumentou significativamente a legibilidade da linguagem, permitindo que os desenvolvedores escrevam código mais declarativo e mais parecido com prosa. Além disso, o uso de Javadoc e outras ferramentas de documentação ajuda a manter o código bem documentado e fácil de entender por outros desenvolvedores.
+
+### 4.16 Redigibilidade
+
+A redigibilidade em Java é boa, apesar de verbosa. Porém, com o uso de IDEs modernas e ferramentas como o Lombok (que permite a criação automática de código boilerplate) e o uso de records, essa verbosidade pode ser significativamente reduzida. A linguagem também possui uma forte convenção de nomenclatura e estilo de código, o que ajuda a manter o código consistente e fácil de ler. Além disso, o uso de ferramentas de formatação automática e linters ajuda a garantir que o código siga as convenções de estilo e seja fácil de entender por outros desenvolvedores, permitindo que formatação sejá parte do processo de compilação e não uma tarefa manual, por exemplo usando o plugin checkstyle em Maven.
+
+## 5 CONCLUSÃO
+
+## 6 BIBLIOGRAFIA 
+
+ORACLE. Processing Streams in Java SE 8. Disponível em: <https://www.oracle.com/br/technical-resources/articles/java/processing-streams-java-se-8.html>. Acesso em: 20 jun. 2025.
+
+ORACLE. Record Patterns (Java SE 22 & JDK 22). Disponível em: <https://docs.oracle.com/en/java/javase/22/language/record-patterns.html>. Acesso em: 20 jun. 2025.
+
+ORACLE. java.util.function (Java SE 8 & JDK 8). Disponível em: <https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html>. Acesso em: 20 jun. 2025.
+
+BAELDUNG. Java Streams vs Loops. Disponível em: <https://www.baeldung.com/java-streams-vs-loops>. Acesso em: 20 jun. 2025.
+
+OPENJDK. JEP 395: Records. Disponível em: <https://openjdk.org/jeps/395>. Acesso em: 20 jun. 2025.
+
+OPENJDK. JEP 441: Pattern Matching for switch. Disponível em: <https://openjdk.org/jeps/441>. Acesso em: 20 jun. 2025.
