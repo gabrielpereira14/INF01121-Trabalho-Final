@@ -1,52 +1,71 @@
 # INF01121-Trabalho-Final
 
 <!-- TOC -->
-- [INF01121-Trabalho-Final](#inf01121-trabalho-final)
-  - [2 VISÃO GERAL DA LINGUAGEM](#2-visão-geral-da-linguagem-java)
-    - [2.1 Origens e inspirações](#21-origens-e-inspirações)
-    - [2.2 Principais características](#22-principais-características)
-    - [2.3 Funcionalidades](#23-funcionalidades)
-    - [2.4 Benefícios](#24-benefícios)
-    - [2.5 Principais Aplicações](#25-principais-aplicações)
-  - [3 DETALHAMENTO DA LINGUAGEM](#3-detalhamento-da-linguagem)
-    - [3.1 Paradigma de Orientação a Objetos em Java](#31-paradigma-de-orientação-a-objetos-em-java)
-      - [3.1.1 Definição de classes](#311-definição-de-classes)
-      - [3.1.2 Herança](#312-herança)
-      - [3.1.3 Encapsulamento](#313-encapsulamento)
-      - [3.1.4 Composição](#314-composição)
-      - [3.1.5 Organização de Código em Java](#315-organização-de-código-em-java)
-      - [3.1.6 Polimorfismo Ad-Hoc e Universal](#316-polimorfismo-ad-hoc-e-universal)
-        - [Polimorfismo Ad-Hoc](#polimorfismo-ad-hoc)
-        - [Polimorfismo Universal](#polimorfismo-universal)
-    - [3.2 Paradigma Funcional em Java](#32-paradigma-funcional-em-java)
-      - [3.2.1 As interfaces funcionais em Java](#321-as-interfaces-funcionais-em-java)
-      - [3.2.2 Funções de Alta Ordem](#322-funções-de-alta-ordem)
-      - [3.2.3 Records](#323-records)
-      - [3.2.4 Pattern Matching](#324-pattern-matching)
-      - [3.2.5 Comparação e Performance de Métodos Funcionais em Java contra Métodos Clássicos](#325-comparação-e-performance-de-métodos-funcionais-em-java-contra-métodos-clássicos)
-      - [3.2.6 Imutabilidade](#326-imutabilidade)
-    - [3.3 Sistema de tipos](#33-sistemas-de-tipos)
-    - [3.4 Escopo e vinculação binding](#34-escopo-e-vinculação-binding)
-    - [3.5 Estrutura de memória e garbage collection](#35-estrutura-de-memória-e-garbage-collection)
-  - [4 ANÁLISE CRITÍCA](#4-análise-critíca)
-    - [4.1 Simplicidade](#41-simplicidade)
-    - [4.2 Ortogonalidade](#42-ortogonalidade)
-    - [4.3 Estruturas de Controle](#43-estruturas-de-controle)
-    - [4.4 Mecanismos de definição e gerência de escopo](#44-mecanismos-de-definição-e-gerência-de-escopo)
-    - [4.5 Expressividade](#45-expressividade)
-    - [4.6 Mecanismos de Especificação e Verificação de Tipos](#46-mecanismos-de-especificação-e-verificação-de-tipos)
-    - [4.7 Suporte ao tratamento de exceções](#47-suporte-ao-tratamento-de-exceções)
-    - [4.8 Reusabilidade](#48-reusabilidade)
-    - [4.9 Suporte a documentação](#49-suporte-a-documentação)
-    - [4.10 Generalidade](#410-generalidade)
-    - [4.11 Portabilidade, longevidade](#411-portabilidade-longevidade)
-    - [4.12 Escalabilidade e desempenho](#412-escalabilidade-e-desempenho)
-    - [4.13 Custo](#413-custo)
-    - [4.14 Confiabilidade](#414-confiabilidade)
-    - [4.15 Legibilidade](#415-legibilidade)
-    - [4.16 Redigibilidade](#416-redigibilidade)
-  - [5 CONCLUSÃO](#5-conclusão)
-  - [6 BIBLIOGRAFIA](#6-bibliografia)
+* [INF01121-Trabalho-Final](#inf01121-trabalho-final)
+  * [2 VISÃO GERAL DA LINGUAGEM JAVA](#2-visão-geral-da-linguagem-java)
+    * [2.1 Origens e inspirações](#21-origens-e-inspirações-)
+    * [2.2 Principais Características](#22-principais-características)
+    * [2.3 Funcionalidades](#23-funcionalidades)
+    * [2.4 Benefícios](#24-benefícios-)
+    * [2.5 Principais Aplicações](#25-principais-aplicações)
+  * [3 DETALHAMENTO DA LINGUAGEM](#3-detalhamento-da-linguagem)
+    * [3.1 Paradigma de Orientação a Objetos em Java](#31-paradigma-de-orientação-a-objetos-em-java)
+      * [3.1.1 Definição de classes](#311-definição-de-classes)
+      * [3.1.2 Herança](#312-herança)
+      * [3.1.3 Encapsulamento](#313-encapsulamento)
+      * [3.1.4 Composição](#314-composição)
+      * [3.1.5 Organização de Código em Java](#315-organização-de-código-em-java)
+      * [3.1.6 Polimorfismo Ad-Hoc e Universal](#316-polimorfismo-ad-hoc-e-universal)
+        * [Polimorfismo Ad-Hoc](#polimorfismo-ad-hoc-)
+        * [Polimorfismo Universal](#polimorfismo-universal)
+    * [3.2 Paradigma Funcional em Java](#32-paradigma-funcional-em-java)
+      * [3.2.1 As interfaces funcionais em Java](#321-as-interfaces-funcionais-em-java)
+      * [3.2.2 Funções de Alta Ordem](#322-funções-de-alta-ordem)
+      * [3.2.3 Records](#323-records)
+      * [3.2.4 Pattern Matching](#324-pattern-matching)
+      * [3.2.5 Comparação e Performance de Métodos Funcionais em Java contra Métodos Clássicos](#325-comparação-e-performance-de-métodos-funcionais-em-java-contra-métodos-clássicos)
+      * [3.2.6 Imutabilidade](#326-imutabilidade-)
+    * [3.3 Sistemas de tipos](#33-sistemas-de-tipos)
+    * [3.4 Escopo e Vinculação (Binding)](#34-escopo-e-vinculação-binding)
+    * [3.5 Estrutura de Memória e Garbage Collection](#35-estrutura-de-memória-e-garbage-collection)
+  * [4 ANÁLISE CRITÍCA](#4-análise-critíca)
+    * [4.1 Simplicidade](#41-simplicidade)
+    * [4.2 Ortogonalidade](#42-ortogonalidade)
+    * [4.3 Estruturas de Controle](#43-estruturas-de-controle)
+    * [4.4 Mecanismos de definição e gerência de escopo](#44-mecanismos-de-definição-e-gerência-de-escopo)
+    * [4.5 Expressividade](#45-expressividade)
+    * [4.6 Mecanismos de Especificação e Verificação de Tipos](#46-mecanismos-de-especificação-e-verificação-de-tipos)
+    * [4.7 Suporte ao tratamento de exceções](#47-suporte-ao-tratamento-de-exceções)
+    * [4.8 Reusabilidade](#48-reusabilidade)
+    * [4.9 Suporte a documentação](#49-suporte-a-documentação)
+    * [4.10 Generalidade](#410-generalidade)
+    * [4.11 Portabilidade, longevidade](#411-portabilidade-longevidade)
+    * [4.12 Escalabilidade e desempenho](#412-escalabilidade-e-desempenho)
+    * [4.13 Custo](#413-custo)
+    * [4.14 Confiabilidade](#414-confiabilidade)
+    * [4.15 Legibilidade](#415-legibilidade)
+    * [4.16 Redigibilidade](#416-redigibilidade)
+  * [5 CONCLUSÃO](#5-conclusão)
+    * [5.1 Benefícios](#51-benefícios)
+      * [5.1.1 Portabilidade ("Write Once, Run Anywhere")](#511-portabilidade-write-once-run-anywhere)
+      * [5.1.2 Orientação a Objetos (POO)](#512-orientação-a-objetos-poo)
+      * [5.1.3 Vasta Biblioteca Padrão e Ecossistema Rico](#513-vasta-biblioteca-padrão-e-ecossistema-rico)
+      * [5.1.4 Gerenciamento Automático de Memória](#514-gerenciamento-automático-de-memória)
+      * [5.1.5 Segurança](#515-segurança)
+      * [5.1.6 Suporte nativo à concorrência](#516-suporte-nativo-à-concorrência)
+      * [5.1.7 Comunidade Grande e Ativa](#517-comunidade-grande-e-ativa)
+    * [5.2 Problemas e Desafios do Java](#52-problemas-e-desafios-do-java)
+      * [5.2.1 Consumo de Memória e Recursos](#521-consumo-de-memória-e-recursos)
+      * [5.2.2 Curva de Aprendizagem para Iniciantes](#522-curva-de-aprendizagem-para-iniciantes)
+      * [5.2.3 Boilerplate Code (Código Repetitivo)](#523-boilerplate-code-código-repetitivo)
+      * [5.2.4 Performance (Inicialização e Runtime)](#524-performance-inicialização-e-runtime)
+      * [5.2.5 Verbosidade](#525-verbosidade)
+    * [5.3 Limitações do Java](#53-limitações-do-java)
+      * [5.3.1 Programação de Baixo Nível:](#531-programação-de-baixo-nível-)
+      * [5.3.2 Limitações em Aplicações de Tempo Real Crítico](#532-limitações-em-aplicações-de-tempo-real-crítico)
+      * [5.3.3Aplicações Gráficas de Alta Performance](#533aplicações-gráficas-de-alta-performance)
+    * [5.4 Considerações finais](#54-considerações-finais)
+  * [6 BIBLIOGRAFIA](#6-bibliografia-)
 <!-- TOC -->
 
 ## 2 VISÃO GERAL DA LINGUAGEM JAVA
@@ -879,6 +898,96 @@ Java é tão legível quanto os programadores a permitem ser. Apeas do custo ini
 A redigibilidade em Java é boa, apesar de verbosa. Porém, com o uso de IDEs modernas e ferramentas como o Lombok (que permite a criação automática de código boilerplate) e o uso de records, essa verbosidade pode ser significativamente reduzida. A linguagem também possui uma forte convenção de nomenclatura e estilo de código, o que ajuda a manter o código consistente e fácil de ler. Além disso, o uso de ferramentas de formatação automática e linters ajuda a garantir que o código siga as convenções de estilo e seja fácil de entender por outros desenvolvedores, permitindo que formatação sejá parte do processo de compilação e não uma tarefa manual, por exemplo usando o plugin checkstyle em Maven.
 
 ## 5 CONCLUSÃO
+A linguagem Java é uma das linguagens de programação mais populares e amplamente utilizadas no mundo, com uma presença 
+significativa no desenvolvimento de aplicações corporativas, mobile (Android) e web. Ademais, sua longevidade e 
+adaptabilidade são testemunho de sua robustez.
+
+### 5.1 Benefícios
+#### 5.1.1 Portabilidade ("Write Once, Run Anywhere")
+Esse é, talvez, o maior benefício do Java. Graças à Máquina Virtual Java (JVM), o código Java uma vez compilado para bytecode 
+pode ser executado em qualquer plataforma que tenha uma JVM instalada, sem necessidade de recompilação. 
+Isso economiza tempo e esforço para desenvolvedores, garantindo compatibilidade em diferentes sistemas operacionais.
+
+#### 5.1.2 Orientação a Objetos (POO)
+Java é uma linguagem puramente orientada a objetos, o que promove um desenvolvimento modular, 
+reutilizável e de fácil manutenção. Conceitos como encapsulamento, herança e polimorfismo são centrais, levando a um 
+código mais organizado e escalável.
+
+#### 5.1.3 Vasta Biblioteca Padrão e Ecossistema Rico
+Java possui uma biblioteca padrão extremamente abrangente (Java API) que oferece funcionalidades para diversas tarefas, 
+desde manipulação de strings até rede e manipulação de arquivos. Além disso, há um ecossistema gigantesco de frameworks 
+(Spring, Hibernate), ferramentas e comunidades ativas que facilitam o desenvolvimento e a resolução de problemas.
+
+#### 5.1.4 Gerenciamento Automático de Memória
+A JVM lida com o gerenciamento de memória automaticamente através do Garbage Collector, isso reduz a ocorrência de erros 
+relacionados à memória, vazamentos, acessos indevidos, etc.
+
+#### 5.1.5 Segurança
+Java oferece segurança para as aplicações visto que a JVM oferece um ambiente sandbox que isola as aplicações, 
+impedindo que códigos maliciosos acessem o sistema operacional diretamente. 
+Além disso, existem recursos de segurança integrados (como criptografia e autenticação) além da verificação de bytecode 
+que ajudam a proteger as aplicações.
+
+#### 5.1.6 Suporte nativo à concorrência
+Outro benefício é o suporte nativo a multithreading, permitindo o desenvolvimento de aplicações que executam múltiplas 
+tarefas simultaneamente, fator crucial para aplicações responsivas e de alto desempenho.
+
+#### 5.1.7 Comunidade Grande e Ativa
+Também possui uma grande comunidade global de desenvolvedores, logo é fácil encontrar suporte, tutoriais, exemplos de 
+código, soluções para problemas, fóruns, grupos de discussão e recursos sobre a linguagem na internet.
+
+
+### 5.2 Problemas e Desafios do Java
+
+#### 5.2.1 Consumo de Memória e Recursos
+Aplicações Java, especialmente as corporativas, podem consumir mais memória e CPU em comparação com linguagens de baixo 
+nível como C++. A JVM por si já consome recursos, o que pode ser uma preocupação em ambientes com recursos limitados.
+
+#### 5.2.2 Curva de Aprendizagem para Iniciantes
+Embora a sintaxe de Java seja relativamente clara, os conceitos de orientação a objetos, o imenso ecossistema de 
+frameworks e a forma como a JVM funciona podem apresentar uma curva de aprendizado íngreme para iniciantes.
+
+#### 5.2.3 Boilerplate Code (Código Repetitivo)
+Em algumas situações, Java pode exigir a escrita de uma quantidade considerável de "boilerplate code" (código repetitivo e genérico) 
+para realizar tarefas simples.
+
+#### 5.2.4 Performance (Inicialização e Runtime)
+Embora a performance de execução do Java seja geralmente boa para a maioria das aplicações, a inicialização de 
+aplicações Java pode ser mais lenta devido ao tempo de carregamento da JVM e das classes. Em cenários de tempo real ou 
+de latência ultra-baixa, pode não ser a melhor escolha.
+
+#### 5.2.5 Verbosidade
+Quando comparada a linguagens mais concisas como Python ou Kotlin, o código Java pode ser mais verboso, 
+exigindo mais linhas de código para implementar a mesma lógica, o que pode impactar a 
+produtividade em projetos menores ou protótipos rápidos.
+
+### 5.3 Limitações do Java
+
+#### 5.3.1 Programação de Baixo Nível: 
+Não é a escolha ideal para programação que requer manipulação direta de 
+hardware ou acesso a recursos de sistema de baixo nível, como drivers de dispositivo ou 
+sistemas operacionais embarcados com restrições de recursos muito severas já que não oferece suporte a esse tipo de
+operações. Nesse âmbito, Java foi projetado visando
+a programação em alto nível, programação de baixo nível por natureza é dependente de platafoma, indo contra a 
+filosofifia "write once, run anywhere" do Java.
+
+
+#### 5.3.2 Limitações em Aplicações de Tempo Real Crítico
+Tipicamente não usado para sistemas de tempo real crítico (hard real-time), onde as garantias de tempo de execução são 
+absolutas e inflexíveis, devido à imprevisibilidade do garbage collector e outras otimizações da JVM.
+
+
+#### 5.3.3Aplicações Gráficas de Alta Performance
+Embora Java tenha bibliotecas para desenvolvimento gráfico 
+(como JavaFX e Swing), para jogos ou aplicações gráficas que exigem o máximo de desempenho e acesso direto à GPU, 
+outras tecnologias como C++ com DirectX/OpenGL ainda são preferidas.
+
+
+### 5.4 Considerações finais
+Apesar de suas limitações, as vantagens do Java, especialmente sua portabilidade e robustez, o mantêm como uma boa escolha 
+para uma vasta gama de projetos de software. A evolução constante da linguagem, com novas 
+versões trazendo melhorias de performance, concisão e novos recursos, garante sua permanência como um pilar da indústria 
+de software.
 
 ## 6 BIBLIOGRAFIA 
 
