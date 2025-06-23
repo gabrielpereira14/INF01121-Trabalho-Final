@@ -25,6 +25,9 @@
       - [3.2.4 Pattern Matching](#324-pattern-matching)
       - [3.2.5 Comparação e Performance de Métodos Funcionais em Java contra Métodos Clássicos](#325-comparação-e-performance-de-métodos-funcionais-em-java-contra-métodos-clássicos)
       - [3.2.6 Imutabilidade](#326-imutabilidade)
+    - [3.3 Sistema de tipos](#33-sistemas-de-tipos)
+    - [3.4 Escopo e vinculação binding](#34-escopo-e-vinculação-binding)
+    - [3.5 Estrutura de memória e garbage collection](#35-estrutura-de-memória-e-garbage-collection)
   - [4 ANÁLISE CRITÍCA](#4-análise-critíca)
     - [4.1 Simplicidade](#41-simplicidade)
     - [4.2 Ortogonalidade](#42-ortogonalidade)
@@ -46,7 +49,7 @@
   - [6 BIBLIOGRAFIA](#6-bibliografia)
 <!-- TOC -->
 
-## 2 Visão Geral da Linguagem Java
+## 2 VISÃO GERAL DA LINGUAGEM JAVA
 ### 2.1 Origens e inspirações 
 
 Em 1991, um grupo de programadores da Sun Microsystems se juntou com uma missão ambiciosa: criar algo novo e que pudesse ser usado em um futuro onde os aparelhos eletrônicos das casas estariam conectados aos computadores. Esse grupo ficou conhecido como Green Team.
@@ -715,6 +718,93 @@ System.out.println(pessoaNula.nome()); // Saída: null
 ```
 
 Entretanto, ainda é possível programar como se a linguagem fosse funcional e imutável de fato, tornando Java uma linguagem ainda mais competitiva e robusta no cenário de desenvolvimento de software.
+
+### 3.3 Sistemas de tipos
+
+Java é uma linguagem de tipagem estática e forte. Isso significa que os tipos das variáveis são definidos em tempo de compilação e verificados pelo compilador, evitando muitos erros em tempo de execução. O tipo precisa ser declarado explicitamente, ao contrário de linguagens dinamicamente tipadas como Python.
+
+```java
+int idade = 25;
+String nome = "Maria";
+// idade = "vinte e cinco"; // erro de compilação
+```
+Desde o Java 10, é possível usar a palavra-chave `var` para permitir inferência de tipo local em variáveis, mas a linguagem continua sendo estaticamente tipada:
+
+```java
+var numero = 10;      // o compilador infere int
+var saudacao = "Oi";  // infere String
+```
+
+Java não possui inferência de tipo completa como Kotlin, mas o uso de var ajuda a reduzir repetição em declarações simples.
+
+A linguagem distingue tipos primitivos (`int`, `double`, `boolean`, etc.) e tipos por referência (objetos e arrays). Não há inferência global — os tipos permanecem fixos e previsíveis dentro do escopo do código. A tipagem é considerada "forte" porque operações inseguras (como somar `int` com `String` ou converter tipos sem cast explícito) não são permitidas.
+
+Além disso, Java suporta generics, que trazem tipos paramétricos para coleções, métodos e classes. Porém, essa tipagem genérica é aplicada somente em tempo de compilação, por meio do mecanismo chamado type erasure:
+
+```java
+List<String> nomes = List.of("Ana", "Bruno");
+
+public static <T> void imprime(T item) {
+    System.out.println(item);
+}
+```
+
+### 3.4 Escopo e Vinculação (Binding)
+
+Java utiliza escopo léxico, ou seja, as variáveis são visíveis apenas dentro do bloco onde foram declaradas. Isso garante previsibilidade no acesso às variáveis:
+
+```java
+int x = 5;
+if (x > 0) {
+    int y = x * 2;
+    System.out.println(y);
+}
+// System.out.println(y); // erro: y não existe aqui
+```
+
+A linguagem aplica vinculação profunda (deep binding): lambdas e classes internas mantêm acesso às variáveis do contexto onde foram definidas, mesmo que sejam executadas em outro momento:
+
+```java
+int base = 5;
+Runnable r = () -> System.out.println(base);
+r.run(); // imprime 5
+// base = 10; // erro: variável deve ser final ou efetivamente final
+```
+
+Em termos de chamadas de métodos, Java usa:
+
+- Binding estático para métodos privados, final, estáticos ou sobrecarga (resolvido em tempo de compilação);
+
+- Binding dinâmico para métodos sobrescritos em subclasses, como ocorre no polimorfismo (resolvido em tempo de execução com base no tipo real do objeto).
+
+A vinculação profunda garante que os valores capturados por funções anônimas são os do contexto léxico, e não do ambiente de chamada — ou seja, Java não adota escopo dinâmico (shallow binding), como em algumas linguagens de script.
+
+### 3.5 Estrutura de Memória e Garbage Collection
+
+A memória em Java é dividida principalmente em:
+
+- Stack (pilha): onde ficam as variáveis locais e chamadas de métodos; cada thread tem sua própria pilha.
+
+- Heap (monte): onde são alocados objetos e arrays criados com `new`.
+
+Exemplo:
+
+```java
+public void fazAlgo() {
+    int x = 10;              // armazenado na stack
+    Pessoa p = new Pessoa(); // p aponta para objeto na heap
+}
+```
+
+Java possui coleta automática de lixo (Garbage Collection), que remove objetos da heap que não têm mais nenhuma referência ativa. Isso reduz a chance de vazamentos de memória e torna o gerenciamento de recursos mais seguro.
+
+```java
+Pessoa p = new Pessoa("João");
+p = null;
+// O objeto "João" será coletado em breve
+```
+
+Diferente de C/C++, não é necessário (nem possível) usar free() manualmente. O gerenciamento automático de memória é uma das razões da robustez do Java em aplicações críticas.
 
 ## 4 ANÁLISE CRITÍCA
 
