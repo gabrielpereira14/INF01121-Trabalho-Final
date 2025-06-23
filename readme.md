@@ -2,6 +2,12 @@
 
 <!-- TOC -->
 - [INF01121-Trabalho-Final](#inf01121-trabalho-final)
+  - [2 VISÃO GERAL DA LINGUAGEM](#2-visão-geral-da-linguagem-java)
+    - [2.1 Origens e inspirações](#21-origens-e-inspirações)
+    - [2.2 Principais características](#22-principais-características)
+    - [2.3 Funcionalidades](#23-funcionalidades)
+    - [2.4 Benefícios](#24-benefícios)
+    - [2.5 Principais Aplicações](#25-principais-aplicações)
   - [3 DETALHAMENTO DA LINGUAGEM](#3-detalhamento-da-linguagem)
     - [3.1 Paradigma de Orientação a Objetos em Java](#31-paradigma-de-orientação-a-objetos-em-java)
       - [3.1.1 Definição de classes](#311-definição-de-classes)
@@ -39,6 +45,85 @@
   - [5 CONCLUSÃO](#5-conclusão)
   - [6 BIBLIOGRAFIA](#6-bibliografia)
 <!-- TOC -->
+
+## 2 Visão Geral da Linguagem Java
+### 2.1 Origens e inspirações 
+
+Em 1991, um grupo de programadores da Sun Microsystems se juntou com uma missão ambiciosa: criar algo novo e que pudesse ser usado em um futuro onde os aparelhos eletrônicos das casas estariam conectados aos computadores. Esse grupo ficou conhecido como Green Team.
+
+Naquela época, sempre que se criava um programa, era preciso fazer versões diferentes para cada sistema operacional ou tipo de máquina. Isso era trabalhoso e limitava a portabilidade dos softwares. Então, o Green Team teve uma ideia inovadora: criar uma linguagem de programação que funcionasse em qualquer lugar, sem precisar de adaptações. Eles se basearam no C++ e criaram uma nova linguagem chamada GreenTalk.
+
+Com essa linguagem, desenvolveram um projeto chamado StarSeven — um controle remoto com tela sensível ao toque que podia se comunicar com os aparelhos da sala de estar. A linguagem evoluiu e passou a se chamar Oak. O projeto era bastante inovador, mas acabou não seguindo adiante porque o mercado ainda não estava pronto para esse tipo de tecnologia.
+
+A grande virada veio em 1994, quando a internet começou a se espalhar. O time resolveu adaptar a linguagem Oak para o desenvolvimento de aplicações web, criando um navegador chamado WebRunner, que trazia interatividade para a web. Foi nessa fase que decidiram mudar o nome da linguagem. James Gosling, um dos criadores, perguntou à equipe o que os motivava durante o trabalho, e a resposta foi: Java Coffee, um tipo de café forte que eles adoravam. Assim, em 1995, nasceu o Java, com a ideia de escrever o código uma vez e rodar em qualquer lugar — o famoso lema: “Write Once, Run Anywhere”.
+
+### 2.2 Principais Características
+
+Java virou referência por algumas razões bem práticas e técnicas:
+
+- Independência de plataforma: o código é compilado para bytecode, que roda em qualquer sistema com a JVM (Java Virtual Machine).
+
+- Orientação a objetos: tudo é tratado como objeto, com suporte completo a herança, polimorfismo, encapsulamento e abstração.
+
+- Robustez e segurança: inclui coleta automática de lixo (garbage collection), tratamento de exceções e ausência de ponteiros.
+
+- Multithreading: permite rodar várias tarefas ao mesmo tempo com suporte nativo a threads.
+
+- Compilação otimizada: o JIT (Just-In-Time compiler) da JVM melhora significativamente o desempenho.
+
+- Ampla biblioteca padrão: oferece APIs para diversas finalidades como manipulação de arquivos, redes, interfaces gráficas, criptografia, etc.
+
+Além disso, Java possui tipagem estática e forte (os tipos são verificados em tempo de compilação), escopo léxico (variáveis seguem o escopo onde foram declaradas) e um modelo de execução baseado em vinculação profunda — ou seja, o significado de variáveis e métodos é resolvido com base na estrutura estática do programa, não no fluxo dinâmico da execução.
+
+### 2.3 Funcionalidades
+
+Entre as funcionalidades modernas da linguagem, destacam-se:
+
+- Coleta automática de lixo (Garbage Collection): gerencia a memória automaticamente, liberando objetos que não estão mais sendo utilizados, o que evita vazamentos e melhora a eficiência do sistema.
+
+- Tratamento de erros por exceção: permite capturar e lidar com erros de forma controlada, usando `try`, `catch`, `finally` e `throw`, o que aumenta a robustez das aplicações.
+
+- APIs de concorrência: fornece ferramentas como `java.util.concurrent` para trabalhar com threads, sincronização, filas e pools de execução, facilitando o desenvolvimento de programas paralelos e eficientes.
+
+- Uso de reflexão (Reflection API): permite inspecionar e manipular classes, métodos e atributos em tempo de execução, o que é útil para frameworks, testes e ferramentas de desenvolvimento.
+
+- Modularização (Java 9+): introduz o sistema de módulos (`module-info.java`), que organiza o código em unidades reutilizáveis e mais seguras, facilitando a manutenção e o controle de dependências.
+
+- Expressões lambda e Streams (Java 8): adicionam suporte à programação funcional, permitindo trabalhar com coleções de forma mais concisa, expressiva e eficiente, usando filtros, mapeamentos e reduções.
+
+### 2.4 Benefícios 
+
+Os benefícios do Java são muitos:
+
+- Portabilidade real: roda em qualquer sistema com a JVM;
+
+- Segurança reforçada: ideal para aplicações que lidam com dados sensíveis;
+
+- Bom desempenho, graças ao compilador JIT e otimizações da máquina virtual;
+
+- Escalabilidade: ótimo para sistemas grandes e distribuídos;
+
+- Ampla comunidade: com vasta documentação, frameworks, ferramentas, tutoriais, bibliotecas e oportunidades no mercado de trabalho.
+
+### 2.5 Principais Aplicações
+
+Java é amplamente utilizado em diferentes áreas da computação, como:
+
+- Desenvolvimento web: com frameworks como Spring, JSF, Servlets e REST APIs;
+
+- Aplicações Android: foi a linguagem principal por muitos anos;
+
+- Sistemas corporativos: como bancos, ERPs, CRMs e sistemas de grande porte;
+
+- Computação em nuvem: com suporte em plataformas como AWS, GCP e Azure;
+
+- Big Data: com ferramentas como Hadoop e Spark;
+
+- IoT e dispositivos embarcados: principalmente usando Java ME;
+
+- Aplicações científicas e espaciais: como a missão Gaia da ESA (Agência Espacial Europeia);
+
+- Aplicações desktop e até jogos.
 
 ## 3 DETALHAMENTO DA LINGUAGEM
 ### 3.1 Paradigma de Orientação a Objetos em Java
@@ -718,3 +803,22 @@ BAELDUNG. Java Streams vs Loops. Disponível em: <https://www.baeldung.com/java-
 OPENJDK. JEP 395: Records. Disponível em: <https://openjdk.org/jeps/395>. Acesso em: 20 jun. 2025.
 
 OPENJDK. JEP 441: Pattern Matching for switch. Disponível em: <https://openjdk.org/jeps/441>. Acesso em: 20 jun. 2025.
+
+ORACLE. Java Technology History. Disponível em: <https://www.oracle.com/java/technologies/javase/java-history.html>. Acesso em: 20 jun. 2025.
+
+ORACLE. Java Platform, Standard Edition Documentation. Disponível em: <https://docs.oracle.com/en/java>. Acesso em: 20 jun. 2025.
+
+GEEKSFORGEEKS. History of Java. Disponível em: <https://www.geeksforgeeks.org/history-of-java>. Acesso em: 20 jun. 2025.
+
+BAELDUNG. A Java Timeline. Disponível em: <https://www.baeldung.com/java-timeline>. Acesso em: 20 jun. 2025.
+
+ORACLE. The Java™ Tutorials – Concurrency. Disponível em: <https://docs.oracle.com/javase/tutorial/essential/concurrency>. Acesso em: 20 jun. 2025.
+
+ORACLE. The Reflection API. Disponível em: <https://docs.oracle.com/javase/tutorial/reflect>. Acesso em: 20 jun. 2025.
+
+ORACLE. Introduction to Lambda Expressions. Disponível em: <https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html>. Acesso em: 20 jun. 2025.
+
+ORACLE. Project Jigsaw: Module System Quick-Start Guide. Disponível em: <https://openjdk.org/projects/jigsaw/quick-start>. Acesso em: 20 jun. 2025.
+
+ESA. Gaia: ESA’s billion-star surveyor. Disponível em: <https://www.esa.int/Science_Exploration/Space_Science/Gaia_overview>. Acesso em: 20 jun. 2025.
+
