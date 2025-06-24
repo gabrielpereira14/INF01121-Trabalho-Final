@@ -229,7 +229,7 @@ class Main{
 Em Java, existem dois casos onde herança acontece, o caso onde uma classe herda outra e caso onde uma classe
 implementa uma interface.
 
-Uma classe herda outra usando a palavra reservada *extends*, desse modo, também recebe os mesmo atributos e 
+Uma classe herda outra usando a palavra reservada `extends`, desse modo, também recebe os mesmo atributos e 
 métodos da classe pai.
 
 > Considera-se como classe filha a classe que herdou de outra e como classe pai a classe do qual foram herdados os 
