@@ -396,7 +396,54 @@ Permite que um método com o mesmo nome se comportem de maneira diferente depend
 
 
 ##### Polimorfismo Ad-Hoc 
-Também conhecido como sobrecarga de métodos, o polimorfismo ad-hoc ocorre ao ter vários métodos com o mesmo 
+Oferece os dois tipos, por coerção e por sobrecarga. No caso da coerção permite tanto o cast de variaveis (ampliação e estreitamento), quanto  o cast de classes (upcast e downcast):
+
+```java
+  int x = 10;
+  long y = x; // Cast de um tipo "menor" para um tipo "maior" - Ampliação
+
+  int z = y;  // Cast de um tipo "maior" para um tipo "menor" - Estreitamento
+
+
+  class Animal {}
+  class Cachorro extends Animal {}
+
+  Animal a = new Cachorro();  // Upcast, sempre válido
+
+  Animal a = new Cachorro();
+  Cachorro c = (Cachorro) a;  // Downcasting – OK 
+
+  Animal a2 = new Animal();
+  Cachorro c2 = (Cachorro) a2; // ERRO - a2 não é um cachorro
+
+```
+
+Java também permite o cast de interfaces:
+
+```java
+interface Conduzivel {
+    void dirigir();
+}
+
+class Carro implements Conduzivel {
+    public void dirigir() {}
+}
+
+Conduzivel cond = new Carro();  // Upcast
+Carro carro = (Carro) cond;     // Downcast
+```
+
+É possível também testar se uma classe extende umaa classe ou implementa uma interface com a palavra reservada `instanceof`:
+
+```java
+Animal a = new Cachorro();
+if (a instanceof Cachorro) {
+    Cachorro d2 = (Cachorro) a;
+}
+```
+
+
+O polimorfismo ad-hoc também ocorre ao ter vários métodos com o mesmo 
 nome em uma única classe, mas com diferentes assinaturas (número, tipo ou ordem dos parâmetros). 
 O compilador decide qual método chamar com base nos argumentos fornecidos em tempo de compilação.
 
@@ -427,7 +474,7 @@ System.out.println(calc.somar(5, 10, 15));   // Chama somar(int, int, int)
 System.out.println(calc.somar(2.5, 3.5));    // Chama somar(double, double)
 ```
 ##### Polimorfismo Universal
-O polimorfismo universal permite que um objeto de uma subclasse seja tratado como um objeto da sua superclasse, 
+O polimorfismo universal por inclusão permite que um objeto de uma subclasse seja tratado como um objeto da sua superclasse, 
 mas o método invocado é aquele da subclasse. Isso pode ser alcançado através de interfaces ou pela sobrescrita (overriding).
 
 Com a sobrescrita uma subclasse fornece uma implementação específica para um método que já é 
@@ -525,6 +572,27 @@ forma1.desenhar();
 System.out.println("Área do retângulo: " + forma2.calcularArea());
 forma2.desenhar();
 ```
+
+
+
+O polimorfismo universal paramétrico é implementado em Java por meio dos Java Generics, que permitem escrever código reusável e seguro, em relação aos tipos, permitindo que classes operem em tipos parametrizados, Exemplo:
+
+```java
+    class ExemploGenerics<T> {
+    private T value;
+
+    public void set(T value) { this.value = value; }
+    public T get() { return value; }
+
+    //Uso
+
+    ExemploGenerics<String> exemplo = new ExemploGenerics<>();
+    exemplo.set("Hello");
+    String val = exemplo.get();  // Não precisa de cast
+}
+```
+
+Podem ser aplicados tanto em classes quanto em métodos, além disso podem ser limitados, especificando uma classe X da qual o tipo passado deve herdar
 
 ### 3.2 Paradigma Funcional em Java
 
@@ -757,16 +825,6 @@ var saudacao = "Oi";  // infere String
 Java não possui inferência de tipo completa como Kotlin, mas o uso de var ajuda a reduzir repetição em declarações simples.
 
 A linguagem distingue tipos primitivos (`int`, `double`, `boolean`, etc.) e tipos por referência (objetos e arrays). Não há inferência global — os tipos permanecem fixos e previsíveis dentro do escopo do código. A tipagem é considerada "forte" porque operações inseguras (como somar `int` com `String` ou converter tipos sem cast explícito) não são permitidas.
-
-Além disso, Java suporta generics, que trazem tipos paramétricos para coleções, métodos e classes. Porém, essa tipagem genérica é aplicada somente em tempo de compilação, por meio do mecanismo chamado type erasure:
-
-```java
-List<String> nomes = List.of("Ana", "Bruno");
-
-public static <T> void imprime(T item) {
-    System.out.println(item);
-}
-```
 
 ### 3.4 Escopo e Vinculação (Binding)
 
