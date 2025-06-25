@@ -592,7 +592,26 @@ O polimorfismo universal paramétrico é implementado em Java por meio dos Java 
 }
 ```
 
-Podem ser aplicados tanto em classes quanto em métodos, além disso podem ser limitados, especificando uma classe X da qual o tipo passado deve herdar
+Podem ser aplicados tanto em classes quanto em métodos, além disso podem ser limitados, especificando uma classe X da qual o tipo passado deve herdar ou ser uma superclasse:
+
+- Classe genérica : `class Box<T> { T value; }`
+
+- Método genérico : `<T> T identidade(T val)` 
+
+- Tipos limitados : `<T extends Number> ou <T super Number>`
+
+Quando o tipo não é usado no código além da declaração do generic, pode ser substituido por `?`, por exemplo, `List<? extends T>`
+
+Em tempo de execução a informação genérica é apagada e substituida por uma superclasse (tipicament Object), isso configura a técnica chamada Type Erasure. Dessa forma, em tempo de execução não há distincão entre `List<String> e List<Integer>` ambas se tornam `List`.
+
+Por fim, os generics possuem algumas limitações:
+
+- Não podem usar tipos primitivos (`int`, `float`, `char`)
+
+- Não funcionam com arrays
+
+- Tipos genéricos não podem ser checados com `instanceof` 
+
 
 ### 3.2 Paradigma Funcional em Java
 
