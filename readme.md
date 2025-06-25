@@ -28,6 +28,7 @@
     * [3.3 Sistemas de tipos](#33-sistemas-de-tipos)
     * [3.4 Escopo e Vinculação (Binding)](#34-escopo-e-vinculação-binding)
     * [3.5 Estrutura de Memória e Garbage Collection](#35-estrutura-de-memória-e-garbage-collection)
+    * [3.6 Reflections](#36-reflection)
   * [4 ANÁLISE CRITÍCA](#4-análise-critíca)
     * [4.1 Simplicidade](#41-simplicidade)
     * [4.2 Ortogonalidade](#42-ortogonalidade)
@@ -901,6 +902,14 @@ p = null;
 ```
 
 Diferente de C/C++, não é necessário (nem possível) usar free() manualmente. O gerenciamento automático de memória é uma das razões da robustez do Java em aplicações críticas.
+
+3.6 Reflection
+
+A API de Reflexão em Java é uma ferramenta poderosa que permite que o programa se "introspecte" em tempo de execução. Isso significa que, dinamicamente, ele pode acessar e manipular informações sobre classes, métodos e campos, mesmo que esses detalhes não fossem conhecidos durante a compilação. Essa funcionalidade é alcançada através de classes no pacote java.lang.reflect, como Class, Field, Method e Constructor, que servem como portas de entrada para explorar a estrutura interna do código.
+
+Com a Reflexão, é possível inspecionar e modificar atributos, invocar métodos e até instanciar objetos de forma programática. Embora ofereça uma flexibilidade tremenda, sendo essencial para o desenvolvimento de frameworks e ferramentas de teste que precisam adaptar-se a estruturas desconhecidas, seu uso deve ser cauteloso. A performance pode ser impactada negativamente, e o encapsulamento pode ser comprometido, expondo membros privados da classe. Além disso, a manutenção de código que utiliza Reflexão pode ser mais complexa, pois refatorações estáticas não são detectadas em tempo de compilação.
+
+Apesar dessas desvantagens, a Reflexão é um recurso indispensável em cenários onde a introspecção dinâmica é crucial. Frameworks de larga escala, como Spring e Hibernate, a utilizam extensivamente para injeção de dependências e mapeamento de dados, demonstrando sua relevância na criação de sistemas flexíveis e poderosos.
 
 ## 4 ANÁLISE CRITÍCA
 
