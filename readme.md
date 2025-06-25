@@ -1054,7 +1054,7 @@ Tipicamente não usado para sistemas de tempo real crítico (hard real-time), on
 absolutas e inflexíveis, devido à imprevisibilidade do garbage collector e outras otimizações da JVM.
 
 
-#### 5.3.3Aplicações Gráficas de Alta Performance
+#### 5.3.3 Aplicações Gráficas de Alta Performance
 Embora Java tenha bibliotecas para desenvolvimento gráfico 
 (como JavaFX e Swing), para jogos ou aplicações gráficas que exigem o máximo de desempenho e acesso direto à GPU, 
 outras tecnologias como C++ com DirectX/OpenGL ainda são preferidas.
